@@ -10,6 +10,9 @@ class Node:
     def set_data(self, data):
         self._data = data
     
+    def get_data(self):
+        return self._data
+        
     def get_next(self):
         return self._next_node
     
