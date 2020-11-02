@@ -130,16 +130,13 @@ class Linked_List():
 
     #TODO FIX THIS FUCTION
     def reverse(self):
-        temp_node = self._head
-        self._head = self._tail
-        self._tail = temp_node
-        temp_node_next = self._head.get_next()
-        self._head.set_next()
-        self._head.set_last(temp_node_next)
-        while temp_node and temp_node != self._head:
-            temp_node_next = temp_node.get_next()
-            temp_node.set_next(temp_node.get_last())
-            temp_node = temp_node_next
+        temp_node = self._tail
+        self._tail = self._head
+        self._head = temp_node
+
+        while temp_node and temp_node.get_next() != self._tail: 
+            temp_node.reverse()
+            temp_node = temp_node.get_next()
 
     def print_songs(self):
         for song in self:

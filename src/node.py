@@ -34,3 +34,8 @@ class Node:
 
     def _set_last(self, last_node):
         self._last_node = last_node
+    
+    def reverse(self):
+        temp_node = self._next_node
+        self._next_node = self._last_node
+        self._last_node = temp_node

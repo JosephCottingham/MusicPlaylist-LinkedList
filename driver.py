@@ -30,7 +30,7 @@ if __name__ == '__main__':
     linked_list.print_songs()
     linked_list.reverse()
     print('\n\n')
-    print(song_names[1] + " was removed")
+    print("reverse")
     print(linked_list.get_size())
     linked_list.print_songs()    
 
