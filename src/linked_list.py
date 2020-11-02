@@ -56,8 +56,8 @@ class Linked_List():
         self._size += 1
 
     def find(self, data):
-        tail_thread = threading.Thread(target=find_recursive_tail, arg=(self._tail, data))
-        head_thread = threading.Thread(target=find_recursive_tail, arg=(self._tail, data))
+        tail_thread = threading.Thread(target=self.find_recursive_tail, args=(self._tail, data))
+        head_thread = threading.Thread(target=self.find_recursive_head, args=(self._head, data))
         tail_thread.start()
         head_thread.start()
         tail_thread.join()
@@ -124,11 +124,10 @@ class Linked_List():
         self._size = 0
 
     def remove_by_index(self, index: int):
-        temp_node = self.get(index)
+        temp_node = self._get_node_by_index(index)
         self._size -= 1
         temp_node.get_last().set_next(temp_node.get_next())
 
-    #TODO FIX THIS FUCTION
     def reverse(self):
         temp_node = self._tail
         self._tail = self._head
