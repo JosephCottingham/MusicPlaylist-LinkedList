@@ -127,11 +127,8 @@ class Linked_List():
             temp_node = temp_node_next
 
     def print_songs():
-        temp_node = self._head
-        while True and temp_node:
-            print(temp_node.get_data())
-            if temp_node == self._tail:
-                break
+        for song in self:
+            print(song)
 
     def _get_node_by_index(self, index):
         if index >= self._size:
@@ -152,7 +149,7 @@ class Linked_List():
             return temp_node
 
     def __iter__(self):
-        pass
+        return Linked_List_Iterator(self)
 
 class Linked_List_Iterator:
    ''' Iterator class '''
@@ -164,6 +161,6 @@ class Linked_List_Iterator:
     ''''Returns the next value from team object's lists '''
     if self._index < (self._linked_list._size) :result = self._linked_list.get_by_index(self._index)
         self._index +=1
-        return result
+        return result.data
     # End of Iteration
     raise StopIteration
