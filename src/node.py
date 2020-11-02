@@ -2,7 +2,7 @@
 
 class Node:
 
-    def __init__(self, data=None, next_node=None, last_node=last_node):
+    def __init__(self, data=None, next_node=None, last_node=None):
         self._data = data
         self._next_node = next_node
         self._last_node = last_node
@@ -12,7 +12,7 @@ class Node:
     
     def get_data(self):
         return self._data
-        
+
     def get_next(self):
         return self._next_node
     
@@ -21,11 +21,13 @@ class Node:
 
     def set_next(self, next_node):
         self._next_node = next_node
-        next_node._set_last(self)
+        if next_node != None:
+            next_node._set_last(self)
 
     def set_last(self, last_node):
         self._last_node = last_node
-        next_node._set_next(self)
+        if last_node != None:
+            last_node._set_next(self)
 
     def _set_next(self, next_node):
         self._next_node = next_node
